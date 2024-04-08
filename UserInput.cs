@@ -72,10 +72,5 @@ namespace FirstApplication
                 }
             }
         }
-
-        internal static void UserInput()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

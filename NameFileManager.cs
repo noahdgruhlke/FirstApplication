@@ -2,8 +2,8 @@
 {
     public class NameFileManager
     {
-        public readonly string filePath;
-        public readonly string folderPath;
+        private readonly string filePath;
+        private readonly string folderPath;
 
         public NameFileManager(string fileName, string folderPath)
         {
