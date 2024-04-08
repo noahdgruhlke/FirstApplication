@@ -11,6 +11,7 @@ namespace FirstApplication
 
             // Instantiate the PersonalFileManager with the folder path
             NameFileManager nameFileManager = new NameFileManager("H:\\0 Professional\\Programming\\FirstApplication\\FirstApplication\\NameFile Manager\\names.txt", folderPath);
+            PersonalFileManager personalFileManager = new PersonalFileManager(folderPath);
 
             //load and unload data
             Console.WriteLine("Hello user! Have you been here before?");
@@ -47,7 +48,7 @@ namespace FirstApplication
             }
 
             // Call the UserInput method from UserOptions class
-            UserOptions.UserInput();
+            UserOptions.UserInput(personalFileManager);
 
             // After UserInput returns true (when user selects logout), you can perform further actions if needed
             Console.WriteLine("Program terminated.");
