@@ -7,10 +7,10 @@ namespace FirstApplication
         static void Main()
         {
             // Define the folder path where the personal files will be stored
-            string folderPath = @"H:\0 Professional\Programming\FirstApplication\FirstApplication\PersonalFile Manager";
+            string folderPath = @"*\PersonalFile Manager";
 
             // Instantiate the PersonalFileManager with the folder path
-            NameFileManager nameFileManager = new NameFileManager("H:\\0 Professional\\Programming\\FirstApplication\\FirstApplication\\NameFile Manager\\names.txt", folderPath);
+            NameFileManager nameFileManager = new NameFileManager(@"*\\NameFile Manager\\names.txt", folderPath);
             PersonalFileManager personalFileManager = new PersonalFileManager(folderPath);
 
             //load and unload data
