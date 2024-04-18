@@ -31,7 +31,7 @@ namespace FirstApplication
                     if (!nameFileManager.NameExists(userInput))
                     {
                         Console.WriteLine("Name does not exist in the list. Please enter a valid name.");
-                        //implement return to line "Console.WriteLine("Hello user! Have you been here before?");"
+                        //implement return to line 17 "Console.WriteLine("Hello user! Have you been here before?");"
                     }
                 } while (!nameFileManager.NameExists(userInput));
 
