@@ -15,8 +15,12 @@ namespace FirstApplication
 
             //load and unload data
             Console.WriteLine("Hello user! Have you been here before?");
+            var wasHereBefore = UserStatus.HereBefore();
 
-            if (UserStatus.HereBefore())
+            if (wasHereBefore is null)
+                System.Environment.Exit(0);
+
+            if ((bool)wasHereBefore)
             {
                 Console.WriteLine("Welcome Back! What is your Name?");
                 string userInput;

@@ -12,28 +12,27 @@ namespace FirstApplication
     }
     internal class UserStatus
     {
-        public static bool HereBefore()
+        public static bool? HereBefore()
         {
             //has user been here before?
             var input = Console.ReadLine();
+            do
+            {
+                switch (input?.ToLower())
+                {
+                    case "yes":
+                        return true;
+                    // Check if the input is "No"
+                    case "no":
+                        return false;
+                    case "exit":
+                        return null;
+                    default:
+                        Console.WriteLine("Invalid input. Please enter 'Yes' or 'No'.");
+                        break;
+                }
+            } while (true);
 
-            // Check if the input is "Yes"
-            if (input?.ToLower() == "yes")
-            {
-                return true;
-            }
-            // Check if the input is "No"
-            else if (input?.ToLower() == "no")
-            {
-                return false;
-            }
-            // Handle invalid input
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter 'Yes' or 'No'.");
-                // Recursively call the method until valid input is received
-                return HereBefore();
-            }
         }
     }
 }
