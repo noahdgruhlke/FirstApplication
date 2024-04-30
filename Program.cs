@@ -18,7 +18,10 @@ namespace FirstApplication
             var wasHereBefore = UserStatus.HereBefore();
 
             if (wasHereBefore is null)
+            {
+                Console.WriteLine("Program terminated.");
                 System.Environment.Exit(0);
+            }
 
             if ((bool)wasHereBefore)
             {
