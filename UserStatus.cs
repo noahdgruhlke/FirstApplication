@@ -28,7 +28,7 @@ namespace FirstApplication
                     case "exit":
                         return null;
                     default:
-                        Console.WriteLine("Invalid input. Please enter 'Yes' or 'No'.");
+                        Console.WriteLine("Invalid input. Please enter 'Yes', 'No' or 'Exit'.");
                         break;
                 }
             } while (true);
