@@ -15,9 +15,8 @@ namespace FirstApplication
 
             //load and unload data
             Console.WriteLine("Hello user! Have you been here before?");
-            var beenHereBefore = UserStatus.HereBefore();
 
-            if (beenHereBefore == true)
+            if (UserStatus.HereBefore())
             {
                 Console.WriteLine("Welcome Back! What is your Name?");
                 string userInput;
@@ -25,7 +24,7 @@ namespace FirstApplication
                 {
                     // Prompt the user to input their name
                     Console.Write("Enter your name: ");
-                    userInput = Console.ReadLine();
+                    userInput = Console.ReadLine() ?? "";
 
                     // Check if the entered name exists in the names.txt file
                     if (string.IsNullOrWhiteSpace(userInput) || !nameFileManager.NameExists(userInput))
@@ -38,8 +37,7 @@ namespace FirstApplication
                 // If the name exists, you can proceed with further operations
                 Console.WriteLine($"Welcome, {userInput}!");
             }
-
-            if (beenHereBefore == false)
+            else
             {
                 Console.WriteLine("Let me add you to our system! What is your Name?");
 
