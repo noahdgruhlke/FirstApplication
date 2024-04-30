@@ -18,12 +18,12 @@ namespace FirstApplication
             var input = Console.ReadLine();
 
             // Check if the input is "Yes"
-            if (input.ToLower() == "yes")
+            if (input?.ToLower() == "yes")
             {
                 return true;
             }
             // Check if the input is "No"
-            else if (input.ToLower() == "no")
+            else if (input?.ToLower() == "no")
             {
                 return false;
             }
