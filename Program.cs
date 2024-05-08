@@ -7,17 +7,23 @@ namespace FirstApplication
         static void Main()
         {
             // Define the folder path where the personal files will be stored
-            string folderPath = @"*\PersonalFile Manager";
+            var folderPath = @"*\PersonalFile Manager";
 
             // Instantiate the PersonalFileManager with the folder path
-            NameFileManager nameFileManager = new NameFileManager(@"*\\NameFile Manager\\names.txt", folderPath);
-            PersonalFileManager personalFileManager = new PersonalFileManager(folderPath);
+            var nameFileManager = new NameFileManager(@"*\\NameFile Manager\\names.txt", folderPath);
+            var personalFileManager = new PersonalFileManager(folderPath);
 
             //load and unload data
             Console.WriteLine("Hello user! Have you been here before?");
-            bool beenHereBefore = UserStatus.HereBefore();
+            var wasHereBefore = UserStatus.HereBefore();
 
-            if (beenHereBefore == true)
+            if (wasHereBefore is null)
+            {
+                Console.WriteLine("Program terminated.");
+                System.Environment.Exit(0);
+            }
+
+            if ((bool)wasHereBefore)
             {
                 Console.WriteLine("Welcome Back! What is your Name?");
                 string userInput;
@@ -25,10 +31,10 @@ namespace FirstApplication
                 {
                     // Prompt the user to input their name
                     Console.Write("Enter your name: ");
-                    userInput = Console.ReadLine();
+                    userInput = Console.ReadLine() ?? "";
 
                     // Check if the entered name exists in the names.txt file
-                    if (!nameFileManager.NameExists(userInput))
+                    if (string.IsNullOrWhiteSpace(userInput) || !nameFileManager.NameExists(userInput))
                     {
                         Console.WriteLine("Name does not exist in the list. Please enter a valid name.");
                         //implement return to line "Console.WriteLine("Hello user! Have you been here before?");"
@@ -38,13 +44,16 @@ namespace FirstApplication
                 // If the name exists, you can proceed with further operations
                 Console.WriteLine($"Welcome, {userInput}!");
             }
-
-            if (beenHereBefore == false)
+            else
             {
                 Console.WriteLine("Let me add you to our system! What is your Name?");
 
-                nameFileManager.AddName(Console.ReadLine());
-                nameFileManager.CreatePersonalFiles();
+                var newName = Console.ReadLine();
+                if (newName != null)
+                {
+                    nameFileManager.AddName(newName);
+                    nameFileManager.CreatePersonalFiles();
+                }
             }
 
             // Call the UserInput method from UserOptions class
